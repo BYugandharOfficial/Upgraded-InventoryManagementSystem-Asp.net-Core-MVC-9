@@ -1,0 +1,66 @@
+﻿@using InevntoryManagementSystem.Models.ViewModels; 
+@model RegisterVM
+
+@{
+        ViewData["Title"] = "Register";
+}
+
+
+
+        <div class="container mt-4">
+            <h3 class="mb-3">Create NewAccounts</h3>
+            <hr />
+
+       
+            <centter>
+        <form asp-action="Register" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+           
+                <div class="col-md-4">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+           
+              <div class="col-md-4">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            </div>
+           <br />
+           <div class="col-md-8">
+            <center>
+               <div class="col-md-4">
+                <input type="submit" value="Register" class="btn btn-primary" />
+               
+                    
+                </div>
+            </center>
+            </div>
+           
+        </form>
+            </centter>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+</div>
+

@@ -1,0 +1,202 @@
+﻿@using InevntoryManagementSystem.Models.ViewModels;
+@model LoginVM
+
+@{
+    Layout = null;  
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+
+    <style>
+       
+         body.bg-body {
+        background: url('Images\image3.jpg') no-repeat center center fixed;
+        
+        background-size:cover;  
+         height:100vh; 
+        
+    }
+         .Page {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+            background: #800080;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+            gap:30px;
+            max-width: 1400px;
+            max-height:1200px
+         }
+
+         .Image{
+             background: #FFB6C1;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+            width: 100%;
+            border-block-end-color:blue;
+            max-width: 700px;
+            max-height:600px
+
+         }
+        .Login {
+            background: #fff;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 600px;
+            max-height:450px;
+            
+            
+        }
+
+        .form-control {
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus {
+                border-color: #667eea;
+                box-shadow: 0px 0px 8px rgba(102, 126, 234, 0.5);
+            }
+
+            .form-check-input
+            {
+             border: 1px solid #ddd;
+            transition: all 0.3s ease;
+            }
+
+            .form-check-input:focus
+            {
+                border-color: #667eea;
+                box-shadow: 0px 0px 8px rgba(102, 126, 234, 0.5);
+            }
+
+        .stylish-button{
+            border-radius: 15px;
+           
+            font-weight: 550;
+            width:250px;
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .stylish-button {
+                background-color: #5640a0;
+                transform: scale(1.02);
+                
+            }
+
+  .password {
+        position: relative;
+    }
+
+    .togglePassword {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+    </style>
+
+
+
+
+ <center>
+     
+    
+   <br />
+   <div class="Page" style="height:650px;" width="700px">
+               
+                 <div align="left">
+                  <div class="Login" style="height:450px; width:500px" align="left">
+                    <div class="col-md-7">
+                       <h3 class="alert-light" style="border-radius:12px; color:blueviolet">Login</h3>
+                <hr />
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label">UserName:</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              
+                <label asp-for="Password" class="control-label">Password:</label>
+                <input asp-for="Password" class="form-control" />
+                <i class="fa fa-eye" id="togglePassword" 
+           style="position:absolute; right:10px; top:10px; cursor:pointer;"></i>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(model => model.RememberMe)
+                </label>
+            </div>
+            
+            <br>
+            <div class="form-group">
+                <div class="col-md-3">
+                <input type="submit" value="Login" class="stylish-button" />
+                </div>
+            </div>
+            <br />
+            <h6 style="color:cornflowerblue">Don't have account ? meet Admin</h6>
+
+        </form>
+    </div>
+</div>
+</div>
+
+<div>
+@*     <a asp-action="Index">Back to List</a>
+ *@</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        document.getElementById("togglePassword").addEventListener("click", function () {
+            var passwordInput = document.getElementById("passwordField");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                this.classList.remove("fa-eye");
+                this.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                this.classList.remove("fa-eye-slash");
+                this.classList.add("fa-eye");
+            }
+        });
+    </script>
+}
+<br />
+<div align="right">
+<div class="Image" style="height:500px; width:1050px" align="right">
+     <center>
+      <h1 class="alert-light" style="border-radius:12px; color:blueviolet">Inventory Management System</h1>
+    </center>
+      <br />
+      <img src="~/images/image3.jpg" style="height:350px;" width="630px" /> 
+      </div>
+        </div>
+    </div>
+     
+    
+    
+    </Center>
+    

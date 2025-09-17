@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Inventory Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
+   
+
+
+    <style>
+        body {
+            display: flex;
+            min-height: 85vh;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+        }
+        .wrapper {
+            display: flex;
+            min-height:93vh;
+        }
+        .sidebar {
+            width: 220px;
+            background-color: black;
+            color: white;
+            min-height: 85vh;
+            padding-top: 1rem;
+        }
+        .sidebar a {
+            color: white;
+            display: block;
+            padding: 8px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+        .content {
+            flex: 1;
+            padding: 5px;
+            margin-left:10px;
+        }
+
+        .header{
+            flex: 1;
+            color:whitesmoke;
+            background-color:blue;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus {
+                border-color: #667eea;
+                box-shadow: 0px 0px 8px rgba(102, 126, 234, 0.5);
+            }
+
+        .form-check-input {
+            border: 1px solid #ddd;
+            transition: all 0.3s ease;
+        }
+
+            .form-check-input:focus {
+                border-color: #667eea;
+                box-shadow: 0px 0px 8px rgba(102, 126, 234, 0.5);
+            }
+
+        .stylish-btn {
+            border-radius: 7px;
+            font-weight: 550;
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
+
+            .stylish-btn:hover {
+                background-color: #5640a0;
+                transform: scale(1.02);
+            }
+
+        .password {
+            position: relative;
+        }
+
+        .togglePassword {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+   
+    <header>
+        <center>
+        <nav class="nav" style="background-color:blueviolet; height:60px">
+            <div class="container" style="align-content:center">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index" style="color:white; font-size:x-large">Inventory Management System</a>
+           </div>
+               
+                
+                <div class="align-content-xxl-end" style="align-content:flex-end; color:white" >
+
+                @if (User?.Identity?.IsAuthenticated == true)
+                {
+                    <p>Logged as: @User.Identity.Name</p>
+                }
+                else
+                {
+                    <p>Please log in.</p>
+                }
+                </div>
+        </nav>
+        </center>
+    </header>
+   
+    <div class="wrapper">
+        <div class="sidebar">
+            <h5 class="px-3">Menu</h5>
+
+            <a asp-controller="Dashboard" asp-action="Index">📊 Dashboard</a>
+            <a asp-controller="Products" asp-action="Index">📦 Products</a>
+            <a asp-controller="Categories" asp-action="Index">🗂 Categories</a>
+            <a asp-controller="Stocks" asp-action="Index">📈 Stocks</a>
+            <a asp-controller="Suppliers" asp-action="Index">🚚 Suppliers</a>
+            <a asp-controller="Sales" asp-action="Index">💰 Sales</a>
+            <a asp-controller="Customers" asp-action="Index">👥 Customers</a>
+
+            @if (User?.Identity?.IsAuthenticated == true &&
+                        User?.Identity?.Name == "bandiyugandhar@gmail.com")
+            {
+                <a class="nav-link" asp-controller="Accounts" asp-action="Register">🛡 Admin</a>
+            }
+            else
+            {
+                
+            }
+          
+            <a asp-controller="Bill" asp-action="Index">🧾 Bill</a>
+            <a asp-controller="ReportToPdf" asp-action="Index">📑 Report To PDF</a>
+
+               
+            <hr class="bg-light">
+            <a asp-controller="Accounts" asp-action="Login">🚪 Logout</a>
+        </div>
+        <div class="main-content flex-grow-1 d-flex flex-column">
+        <!-- Main Content -->
+        <main class="content">
+            @RenderBody()
+        </main>
+   
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-2">
+        <p>&copy; 2025 My Inventory Management System | All Rights Reserved</p>
+    </footer>
+    </div>
+    </div>
+
+        <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

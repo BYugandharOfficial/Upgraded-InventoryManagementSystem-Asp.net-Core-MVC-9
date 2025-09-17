@@ -1,0 +1,78 @@
+﻿@model InevntoryManagementSystem.Models.Suppliers
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h3 class="mb-3">Edit Supllier</h3>
+    <hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SupplierId" />
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label asp-for="CategoryName" class="control-label"></label>
+                <input asp-for="CategoryName" class="form-control" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="ContactPerson" class="control-label"></label>
+                <input asp-for="ContactPerson" class="form-control" />
+                <span asp-validation-for="ContactPerson" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+                <div class="col-md-4">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+                <div class="col-md-4">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                <label asp-for="GSTNumber" class="control-label"></label>
+                <input asp-for="GSTNumber" class="form-control" />
+                <span asp-validation-for="GSTNumber" class="text-danger"></span>
+            </div>
+                    <div class="col-md-4">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            </div>
+        <br />
+        <div class="col-md-11">
+            <div class="d-flex justify-content-center gap-2 mt-4">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            
+                            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                        </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
