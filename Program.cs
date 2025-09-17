@@ -22,13 +22,13 @@ var connectionStringNew = builder.Configuration.GetConnectionString("******") ??
 
 // ---------------------------------------Database----------------------------------------------------
 builder.Services.AddDbContext<AppDbContext>(optionsAction =>
-optionsAction.UseSqlServer(builder.Configuration.GetConnectionString("Business")));
+optionsAction.UseSqlServer(builder.Configuration.GetConnectionString("******")));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Identity")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("******")));
 
 
 
@@ -49,14 +49,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 
 
 //--------------------------------Authentication Cookies---------------------------------------------
-//builder.Services.ConfigureApplicationCookie(options =>
-//{
-//    options.LoginPath = "/AccountsLogin/Login";
-//    options.LogoutPath = "/AccountsNew/Logout";
-//    options.AccessDeniedPath = "/AccountsNew/AccessDenied";
-//    options.SlidingExpiration = true;
-//    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-//});
+
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -74,7 +67,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddControllersWithViews();
 
 // Add Authentication + Authorization
-builder.Services.AddAuthentication(); // (configure schemes if needed)
+builder.Services.AddAuthentication(); 
 builder.Services.AddAuthorization();
 builder.Services.AddRazorPages();
 
@@ -125,5 +118,6 @@ app.MapRazorPages();
 
 
 app.Run();
+
 
 
