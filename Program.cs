@@ -15,8 +15,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-var connectionString = builder.Configuration.GetConnectionString("Business") ?? throw new InvalidOperationException("Connection string 'Business' not found.");
-var connectionStringNew = builder.Configuration.GetConnectionString("Identity") ?? throw new InvalidOperationException("Connection string 'Identity' not found.");
+var connectionString = builder.Configuration.GetConnectionString("******") ?? throw new InvalidOperationException("Connection string '******' not found.");
+var connectionStringNew = builder.Configuration.GetConnectionString("******") ?? throw new InvalidOperationException("Connection string '******' not found.");
 
 
 
@@ -125,4 +125,5 @@ app.MapRazorPages();
 
 
 app.Run();
+
 
